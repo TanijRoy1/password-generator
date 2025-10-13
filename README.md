@@ -1,6 +1,6 @@
 ## Assignment 7: Customer Support Zone
 
-### Change status and arrange updatedTickets by id:
+### 1. Change status and arrange updatedTickets by id:
 ```js
 const handleInProgress = (ticket) => {
   if (ticket.status === "Open") {
@@ -23,7 +23,7 @@ const inProgressTickets = tickets.filter(el => el.status === "In-Progress");
 const resolvedTickets = tickets.filter(el => el.status === "Resolved");
 ```
 
-### For Responsiveness: 
+### 2. For Responsiveness: 
 
 ```js
 <div className="px-4">
@@ -37,7 +37,7 @@ const resolvedTickets = tickets.filter(el => el.status === "Resolved");
 
 ## Assignment 8: Hero Apps
 
-### Sorting + IIFE: sortedInstalledApps = (()=>{})();
+### 1. Sorting + IIFE: sortedInstalledApps = (()=>{})();
 ```js
 <label className="form-control w-full max-w-xs">
    <select
@@ -64,7 +64,7 @@ const sortedInstalledApps = (() => {
 })();
 ```
 
-### Handle Uninstall:
+### 2. Handle Uninstall:
 ```js
 const { apps, loading } = useLoadApps();
 const [installedIds, setInstalledIds] = useState(getStoredAppsId());
@@ -77,7 +77,7 @@ const handleUninstall = (id) => {
 };
 ```
 
-### Search Functionality:
+### 3. Search Functionality:
 ```js
 <input
   type="search"
@@ -96,7 +96,7 @@ const searchedApps = searchTerm ?
   : apps;
 ```
 
-### Handle Install:
+### 4. Handle Install:
 ```js
 const { apps, loading } = useLoadApps();
 const { appId } = useParams();
@@ -120,7 +120,7 @@ const handleInstall = () => {
 }
 ```
 
-### Rechart:
+### 5. Rechart:
 ```js
 const { ratings } = app;
 // "ratings": [
@@ -149,7 +149,7 @@ const { ratings } = app;
   </ResponsiveContainer>
 </div>
 ```
-### Loading when Search:
+### 6. Loading when Search:
 ```js
 const [searchLoading, setSearchLoading] = useState(false);
 useEffect(() => {
@@ -162,7 +162,7 @@ useEffect(() => {
 
 if (loading || searchLoading) return <Loading></Loading>;
 ```
-### Custom Hook: useLoadApps
+### 7. Custom Hook: useLoadApps
 ```js
 const useLoadApps = () => {
   const [apps, setApps] = useState([]);
@@ -181,7 +181,7 @@ const useLoadApps = () => {
 };
 ```
 
-### Local Storage:
+### 8. Local Storage:
 ```js
 const getStoredAppsId = () => {
   const StoredIds = JSON.parse(localStorage.getItem("installedAppsId"));
@@ -211,7 +211,7 @@ const removeIdFromLS = (id) => {
 export {getStoredAppsId, addIdToLS, removeIdFromLS};
 ```
 
-### ⚙️ React Router Deployment Setup
+### 9. ⚙️ React Router Deployment Setup
 When deploying a React Router application (especially on platforms like Vercel, Netlify, or GitHub Pages), client-side routing can cause issues — for example, refreshing a route like `/about` may show a **404 error**.
 
 To fix this, you need to redirect all requests to your main index.html file so the React Router can handle the routing internally.
